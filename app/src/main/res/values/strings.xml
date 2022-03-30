@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">maktab_hw10_1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="cheat">Cheat</string>
+
+    <string name="mtrue">True</string>
+    <string name="mfalse">False</string>
+    <string name="sureCheat">Are you sure about cheating ?</string>
+</resources>

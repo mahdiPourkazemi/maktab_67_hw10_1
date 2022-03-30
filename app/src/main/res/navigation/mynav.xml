@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mynav"
+    app:startDestination="@id/firstFragment">
+    <action
+        android:id="@+id/toCheat"
+        app:destination="@id/cheatFragment" />
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.FirstFragment"
+        android:label="FirstFragment" >
+        <action
+            android:id="@+id/fFg_to_sFg"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.SecondFragment"
+        android:label="SecondFragment" >
+    </fragment>
+    <fragment
+        android:id="@+id/cheatFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.CheatFragment"
+        android:label="fragment_cheat"
+        tools:layout="@layout/fragment_cheat" >
+        <argument
+            android:name="quz"
+            app:argType="integer" />
+    </fragment>
+</navigation>
