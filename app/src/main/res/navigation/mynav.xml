@@ -20,6 +20,9 @@
         android:id="@+id/secondFragment"
         android:name="com.pourkazemi.mahdi.maktab_hw10_1.SecondFragment"
         android:label="SecondFragment" >
+        <action
+            android:id="@+id/action_secondFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
     </fragment>
     <fragment
         android:id="@+id/cheatFragment"
@@ -30,4 +33,64 @@
             android:name="quz"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.ThirdFragment"
+        android:label="ThirdFragment" >
+        <action
+            android:id="@+id/tFragment_to_fFragment"
+            app:destination="@id/fourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.FourFragment"
+        android:label="FourFragment" >
+        <action
+            android:id="@+id/fourFragment_to_fiveFragment"
+            app:destination="@id/fiveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fiveFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.FiveFragment"
+        android:label="FiveFragment" >
+        <action
+            android:id="@+id/fiveFragment_to_sixFragment"
+            app:destination="@id/sixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sixFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.SixFragment"
+        android:label="SixFragment" >
+        <action
+            android:id="@+id/sixFragment_to_sevenFragment"
+            app:destination="@id/sevenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sevenFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.SevenFragment"
+        android:label="SevenFragment" >
+        <action
+            android:id="@+id/sevenFragment_to_eightFragment"
+            app:destination="@id/eightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eightFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.EightFragment"
+        android:label="EightFragment" >
+        <action
+            android:id="@+id/eightFragment_to_nineFragment"
+            app:destination="@id/nineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nineFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.NineFragment"
+        android:label="NineFragment" >
+        <action
+            android:id="@+id/nineFragment_to_tenFragment"
+            app:destination="@id/tenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tenFragment"
+        android:name="com.pourkazemi.mahdi.maktab_hw10_1.TenFragment"
+        android:label="TenFragment" />
 </navigation>

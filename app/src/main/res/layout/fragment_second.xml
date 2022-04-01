@@ -63,16 +63,18 @@
 
     <TextView
         android:id="@+id/textView"
-        android:text="the family writer of this app is pourkazemi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="this is were the question go for quz and answer"
+        android:text="the family writer of this app is pourkazemi"
+        android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/btnFalse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineTop"
-        app:layout_constraintVertical_chainStyle="spread_inside" />
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        tools:text="this is were the question go for quz and answer" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTop"

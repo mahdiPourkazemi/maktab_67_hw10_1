@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
-import com.pourkazemi.mahdi.maktab_hw10_1.databinding.FragmentFirstBinding
-import com.pourkazemi.mahdi.maktab_hw10_1.databinding.FragmentSecondBinding
+import com.pourkazemi.mahdi.maktab_hw10_1.databinding.FragmentSevenBinding
+import com.pourkazemi.mahdi.maktab_hw10_1.databinding.FragmentSixBinding
 
-class SecondFragment : Fragment(R.layout.fragment_second) {
-    private var _binding: FragmentSecondBinding? = null
+
+class SevenFragment : Fragment(R.layout.fragment_seven) {
+    private var _binding: FragmentSevenBinding? = null
     private val binding get() = _binding!!
     private var isCheated: Boolean? = null
 
@@ -21,20 +22,21 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         setFragmentResultListener("cheated") { key, bundle ->
             isCheated = bundle.getBoolean("cheat")
         }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentSecondBinding.bind(view)
+        _binding = FragmentSevenBinding.bind(view)
         isCheated?.let {
             Toast.makeText(
                 requireContext(),
-                "you are cheating is $isCheated",
+                "your cheating is $isCheated",
                 Toast.LENGTH_SHORT
             ).show()
         }
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_secondFragment_to_thirdFragment)
+            findNavController().navigate(R.id.sevenFragment_to_eightFragment)
         }
         binding.btnPre.setOnClickListener {
             findNavController().popBackStack()
@@ -46,6 +48,12 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         binding.btnTrue.setOnClickListener {
             Toast.makeText(
                 requireContext(), "your answer is TRUE",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        binding.btnFalse.setOnClickListener {
+            Toast.makeText(
+                requireContext(), "your answer is FALSE",
                 Toast.LENGTH_SHORT
             ).show()
         }
