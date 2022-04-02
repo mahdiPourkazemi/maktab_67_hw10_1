@@ -1,5 +1,6 @@
 package com.pourkazemi.mahdi.maktab_hw10_1
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -29,11 +30,14 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         }
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFirstBinding.bind(view)
         myViewModel.bList.observe(viewLifecycleOwner){
             isCheated=it[0]
+            binding.tvCheat.text="your cheating is $isCheated"
         }
 
         binding.btnNext.setOnClickListener {
@@ -46,6 +50,12 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         binding.btnTrue.setOnClickListener {
             Toast.makeText(
                 requireContext(), "your answer is TRUE",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        binding.btnFalse.setOnClickListener {
+            Toast.makeText(
+                requireContext(), "your answer is FALSE",
                 Toast.LENGTH_SHORT
             ).show()
         }

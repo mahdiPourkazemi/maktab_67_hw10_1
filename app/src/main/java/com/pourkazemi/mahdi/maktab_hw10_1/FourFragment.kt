@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import com.pourkazemi.mahdi.maktab_hw10_1.databinding.FragmentFourBinding
@@ -15,17 +16,23 @@ class FourFragment : Fragment(R.layout.fragment_four) {
     private val binding get() = _binding!!
     private var isCheated: Boolean? = null
 
+    private val myViewModel: MyViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setFragmentResultListener("cheated") { key, bundle ->
             isCheated = bundle.getBoolean("cheat")
-
+            isCheated?.let { myViewModel.addToList(3, it) }
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentFourBinding.bind(view)
+        myViewModel.bList.observe(viewLifecycleOwner) {
+            isCheated = it[3]
+
+        }
+
         isCheated?.let {
             Toast.makeText(
                 requireContext(),
@@ -40,7 +47,7 @@ class FourFragment : Fragment(R.layout.fragment_four) {
             findNavController().popBackStack()
         }
         binding.btnCheat.setOnClickListener {
-            val action = FirstFragmentDirections.toCheat(1)
+            val action = FirstFragmentDirections.toCheat(4)
             findNavController().navigate(action)
         }
         binding.btnTrue.setOnClickListener {
@@ -56,6 +63,37 @@ class FourFragment : Fragment(R.layout.fragment_four) {
             ).show()
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.run {
+            isCheated?.let { putBoolean("cheat", it) }
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        isCheated = savedInstanceState?.getBoolean("cheat")
+        isCheated?.let {
+            Toast.makeText(
+                requireContext(),
+                "${savedInstanceState?.getBoolean("cheat")}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        super.onViewStateRestored(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isCheated?.let {
+            Toast.makeText(
+                requireContext(),
+                "you are cheating is $it",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
